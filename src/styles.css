@@ -1,0 +1,166 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — « Mes mots »
+ * Interface douce, claire, pour le primaire.
+ *
+ * Les couleurs des SONS sont définies plus bas (--son-*).
+ * Pour modifier la couleur d'un phonème, change simplement sa valeur ici :
+ * toute l'application suit automatiquement.
+ */
+
+@theme inline {
+  --font-display: "Baloo 2", "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-inksoft: var(--inksoft);
+  --color-mist: var(--mist);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 1rem;
+
+  --background: oklch(0.97 0.014 250);
+  --foreground: oklch(0.35 0.045 275);
+  --ink: oklch(0.35 0.045 275);
+  --inksoft: oklch(0.55 0.035 280);
+  --mist: oklch(0.95 0.015 255);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.35 0.045 275);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0.045 275);
+
+  --primary: oklch(0.35 0.045 275);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.88 0.07 12);
+  --secondary-foreground: oklch(0.35 0.045 275);
+  --muted: oklch(0.95 0.015 255);
+  --muted-foreground: oklch(0.55 0.035 280);
+  --accent: oklch(0.9 0.06 20);
+  --accent-foreground: oklch(0.35 0.045 275);
+  --destructive: oklch(0.63 0.16 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.72 0.12 155);
+  --border: oklch(1 0 0);
+  --input: oklch(1 0 0);
+  --ring: oklch(0.85 0.06 240);
+
+  /* ------------------------------------------------------------------
+   * COULEURS DES SONS (phonèmes)
+   * Un son = une couleur, partout dans l'application.
+   * Plusieurs graphies d'un même son partagent donc la même couleur
+   * (ex. o / au / eau utilisent toutes --son-o).
+   * ------------------------------------------------------------------ */
+
+  /* Voyelles — teintes vives et douces */
+  --son-a: #ffd4a3;
+  --son-e_ferme: #fff3a8;
+  --son-e_ouvert: #ffd86b;
+  --son-e_muet_son: #eae6de;
+  --son-i: #ccf0a8;
+  --son-o: #a8ecc8;
+  --son-ou: #a3e6ec;
+  --son-u: #a8d0f7;
+  --son-eu: #c3c0f7;
+  --son-an: #ddb8f5;
+  --son-on: #f5b8ee;
+  --son-in: #ffb3cf;
+  --son-un: #ffb0b0;
+  --son-wa: #7fd6cf;
+  --son-ui: #9ec4e8;
+  --son-ien: #f7a8dd;
+
+  /* Consonnes — teintes plus douces et sourdes */
+  --son-p: #e8d9c9;
+  --son-b: #dcc5ae;
+  --son-t: #d4e8d0;
+  --son-d: #bfdcb9;
+  --son-k: #d0e6e8;
+  --son-g: #b6d6da;
+  --son-f: #e2ddc0;
+  --son-v: #ccc8a6;
+  --son-s: #dcd9ec;
+  --son-z: #c4bfe2;
+  --son-ch: #efd0e4;
+  --son-j: #dbbdd8;
+  --son-m: #d2e4ec;
+  --son-n: #b9d2de;
+  --son-gn: #cdd8ee;
+  --son-l: #e6dfdb;
+  --son-r: #d6c8c8;
+  --son-y: #e9e0f2;
+
+  /* Lettre muette : pas de son */
+  --son-muet: #f1f0ee;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-image: linear-gradient(
+      160deg,
+      oklch(0.95 0.03 250) 0%,
+      oklch(0.96 0.025 155) 55%,
+      oklch(0.96 0.03 305) 100%
+    );
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility glass {
+  background: color-mix(in srgb, white 62%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@utility glow {
+  box-shadow:
+    0 24px 60px -28px color-mix(in srgb, oklch(0.55 0.1 265) 45%, transparent),
+    0 2px 0 color-mix(in srgb, white 70%, transparent) inset;
+}
+
+/* Module verbes : radical et terminaison (couleurs constantes) */
+:root {
+  --radical: oklch(0.86 0.07 250);
+  --terminaison: oklch(0.88 0.09 60);
+}
