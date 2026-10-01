@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789676624898,
+      "tag": "0000_enfants_et_mots",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789732750358,
+      "tag": "0001_progression_enfants",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790608952482,
+      "tag": "0002_listes_de_mots",
+      "breakpoints": true
+    }
+  ]
+}
